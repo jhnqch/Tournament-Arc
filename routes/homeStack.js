@@ -14,9 +14,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../screens/home';
 import ReviewDetails from '../screens/reviewDetails';
 
+import Icon from 'react-native-vector-icons/Ionicons';
+
 const { Navigator, Screen } = createStackNavigator();
 
-export const HomeStack = () => (
+export const HomeStack = ({navigation}) => (
   <Navigator
     headerMode='screen'
     screenOptions={{
@@ -30,12 +32,28 @@ export const HomeStack = () => (
     <Screen
       name='Home'
       component={Home}
-      options={{ title: 'Home Screen', headerTitleAlign: 'center' }}
+      options={{ 
+        title: 'Home Screen', 
+        headerTitleAlign: 'center',
+        headerLeft: () => (
+          <Icon.Button name = "ios-menu" size={25}
+          backgroundColor="#BAD7E6" onPress={() => navigation.openDrawer()}
+          ></Icon.Button>
+        )
+       }}
     />
     <Screen
       name='ReviewDetails'
       component={ReviewDetails}
-      options={{ title: 'Review Details' }}
+      options={{ 
+        title: 'Review Details', 
+        headerTitleAlign: 'center',
+        headerLeft: () => (
+          <Icon.Button name = "ios-menu" size={25}
+          backgroundColor="#BAD7E6" onPress={() => navigation.openDrawer()}
+          ></Icon.Button>
+        )
+       }}
     />
   </Navigator>
 );
