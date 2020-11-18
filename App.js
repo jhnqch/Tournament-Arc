@@ -1,6 +1,6 @@
 /*--- 
   SUMMARY:
-  
+  This is the main file that the program will run 
 
 ---*/
 import React, { useState } from 'react';
