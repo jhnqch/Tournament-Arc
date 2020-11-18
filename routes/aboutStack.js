@@ -8,10 +8,12 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import About from '../screens/about';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 
 const { Navigator, Screen } = createStackNavigator();
 
-export const AboutStack = () => (
+export const AboutStack = ({navigation}) => (
   <Navigator
     headerMode='screen'
     screenOptions={{
@@ -25,7 +27,15 @@ export const AboutStack = () => (
     <Screen
       name='About'
       component={About}
-      options={{ title: 'About Tournament Arc', headerTitleAlign: 'center' }}
+      options={{ 
+        title: 'About Tournament Arc', 
+        headerTitleAlign: 'center',
+         headerLeft: () => (
+          <Icon.Button name = "ios-menu" size={25}
+          backgroundColor="#BAD7E6" onPress={() => navigation.openDrawer()}
+          ></Icon.Button>
+         )
+        }}
     />
   </Navigator>
 );
