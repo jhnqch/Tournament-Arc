@@ -1,6 +1,23 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, TextInput, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, TextInput, StyleSheet, Button } from "react-native";
 import { Account, accounts } from '../App.js'
+
+function GoToButton({ screenName }) {
+    const navigation = useNavigation();
+  
+    return (
+      <Button
+        color = '#304857'
+        padding = {10}
+        margin = {15}
+        height = {40}
+        title={`${screenName}`}
+        onPress={() => navigation.navigate(screenName)}
+      />
+    );
+}
+
 
 
 class Inputs extends Component {
@@ -45,7 +62,7 @@ class Inputs extends Component {
                 <TextInput style={styles.input}
                     underlineColorAndroid="transparent"
                     placeholder="Username"
-                    placeholderTextColor="#9a73ef"
+                    placeholderTextColor="#304857"
                     autoCapitalize="none"
                     onChangeText={this.handleUsername}
                     maxLength={25}
@@ -58,7 +75,7 @@ class Inputs extends Component {
                     secureTextEntry={true}
                     underlineColorAndroid="transparent"
                     placeholder="Password"
-                    placeholderTextColor="#9a73ef"
+                    placeholderTextColor="#304857"
                     autoCapitalize="none"
                     onChangeText={this.handlePassword}
                     maxLength={25}
@@ -74,6 +91,11 @@ class Inputs extends Component {
                     }>
                     <Text style = {styles.submitButtonText}> LOG IN </Text>
                 </TouchableOpacity>
+
+                <GoToButton screenName = "Register" />
+
+               
+
             </View>
         )
     }
@@ -88,16 +110,24 @@ const styles = StyleSheet.create({
     input: {
         margin: 15,
         height: 40,
-        borderColor: '#7a42f4',
+        borderColor: '#304857',
         borderWidth: 2
     },
     submitButton: {
-        backgroundColor: '#7a42f4',
+        backgroundColor: '#304857',
         padding: 10,
         margin: 15,
         height: 40,
     },
+    submitButton2: {
+        backgroundColor: '#304857',
+        padding: 10,
+        margin: 10,
+        height: 40,
+    },
     submitButtonText:{
-        color: 'white'
+        color: 'white',
+        textAlign: 'center',
     }
 })
+

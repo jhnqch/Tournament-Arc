@@ -11,6 +11,12 @@ export const globalStyles = StyleSheet.create({
         color: '#333',
         padding: 10,
     },
+    pageText: {
+        fontFamily: 'nunito-regular',
+        fontSize: 12,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     paragraph: {
         marginVertical: 8,
         lineHeight: 20,

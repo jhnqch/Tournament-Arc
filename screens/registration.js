@@ -1,13 +1,31 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, TextInput, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, TextInput, StyleSheet, Button } from "react-native";
 import { Account, accounts } from '../App.js'
+import { useNavigation } from '@react-navigation/native';
 
+function GoToButton({ screenName }) {
+    const navigation = useNavigation();
+  
+    return (
+      <Button
+        color = '#304857'
+        title={`Login`}
+        padding = {10}
+        margin = {15}
+        height = {40}
+        onPress={() => navigation.navigate(screenName)}
+      />
+    );
+}
 
 class Registration extends Component {
     state = {
         email: '',
         username: '',
-        password: ''
+        password: '',
+        passwordConfirm: '',
+        usernameCondition: '',
+        passwordCondition: ''
     }
 
     handleEmail = (text) => {
@@ -16,10 +34,37 @@ class Registration extends Component {
 
     handleUsername = (text) => {
         this.setState({ username: text })
+        this.handleUsernameConditions()
     }
 
     handlePassword = (text) => {
         this.setState({ password: text })
+        this.handlePasswordConditions()
+    }
+
+    handlePasswordConfirm = (text) => {
+        this.setState({ passwordConfirm: text })
+    }
+
+    handleUsernameConditions() {
+        var usernameCondition = ''
+        if (this.state.username.length > 24) 
+            usernameCondition += '- Max Length Reached\n'
+        this.setState({ usernameCondition: usernameCondition })
+    }
+
+    handlePasswordConditions() {
+        var passwordCondition = ''
+        var characters = /^.{5,25}$/
+//        var symbols = /^(?=.*[!@#$%^&*])$/
+//        var capital = /^(?=.*[A-Z])$/
+        if (!characters.test(this.state.password))
+            passwordCondition += '- Must Contain 6 to 25 Characters\n'
+//        if (!symbols.test(this.state.password))
+//            passwordCondition += '- Must contain a Symbol or Number\n'
+//        if (!capital.test(this.state.password))
+//            passwordCondition += '- Must contain a Capital Letter\n'
+        this.setState({ passwordCondition: passwordCondition })
     }
 
     createAccount = (email, username, password) => {
@@ -30,16 +75,20 @@ class Registration extends Component {
         //      -- "already have an account" button
         //
         // BUGS -- let me know
-
+        var characters = /^.{6,25}$/
         if (this.state.email == "" || this.state.username == "" || this.state.password == "")
             alert('Missing Required Fields')
+        else if (!characters.test(this.state.password)) 
+            alert('Password Must Contain Between 6 and 25 Characters')
+        else if (this.state.password != this.state.passwordConfirm)
+            alert('Passwords Do Not Match')
         else {
             if (accounts.findIndex((element) => element.email.toUpperCase() == email.toUpperCase()) != -1)
-                alert('This email address is already in use')
+                alert('This Email Address is Already in Use')
             else if (accounts.findIndex((element) => element.username.toUpperCase() == username.toUpperCase()) != -1)
-                alert('This username is already in use')
+                alert('This Username is Already in Use')
             else {
-                alert('Account successfully created')
+                alert('Account Successfully Created')
                 new Account(email,username,password)
             }
         }
@@ -51,7 +100,7 @@ class Registration extends Component {
                 <TextInput style={styles.input}
                     underlineColorAndroid="transparent"
                     placeholder="Email Address"
-                    placeholderTextColor="#9a73ef"
+                    placeholderTextColor="#304857"
                     autoCapitalize="none"
                     onChangeText={this.handleEmail}
                     maxLength={25}
@@ -63,7 +112,7 @@ class Registration extends Component {
                 <TextInput style={styles.input}
                     underlineColorAndroid="transparent"
                     placeholder="Username"
-                    placeholderTextColor="#9a73ef"
+                    placeholderTextColor="#304857"
                     autoCapitalize="none"
                     onChangeText={this.handleUsername}
                     maxLength={25}
@@ -72,17 +121,38 @@ class Registration extends Component {
                     value={this.state.username}
                 />
 
+                <Text style={styles.text}>
+                    {this.state.usernameCondition}
+                </Text>
+
                 <TextInput style={styles.input}
                     secureTextEntry={true}
                     underlineColorAndroid="transparent"
                     placeholder="Password"
-                    placeholderTextColor="#9a73ef"
+                    placeholderTextColor="#304857"
                     autoCapitalize="none"
                     onChangeText={this.handlePassword}
                     maxLength={25}
                     textAlign="center"
                     textContentType="password"
                     value={this.state.password}
+                />
+
+                <Text style={styles.text}>
+                    {this.state.passwordCondition}
+                </Text>
+
+                <TextInput style={styles.input}
+                    secureTextEntry={true}
+                    underlineColorAndroid="transparent"
+                    placeholder="Re-enter Password"
+                    placeholderTextColor="#304857"
+                    autoCapitalize="none"
+                    onChangeText={this.handlePasswordConfirm}
+                    maxLength={25}
+                    textAlign="center"
+                    textContentType="password"
+                    value={this.state.passwordConfirm}
                 />
 
                 <TouchableOpacity
@@ -92,6 +162,9 @@ class Registration extends Component {
                     }>
                     <Text style={styles.submitButtonText}> CREATE ACCOUNT </Text>
                 </TouchableOpacity>
+
+                <GoToButton screenName = "Input" />
+
             </View>
         )
     }
@@ -106,16 +179,21 @@ const styles = StyleSheet.create({
     input: {
         margin: 15,
         height: 40,
-        borderColor: '#7a42f4',
+        borderColor: '#304857',
         borderWidth: 2
     },
     submitButton: {
-        backgroundColor: '#7a42f4',
+        backgroundColor: '#304857',
         padding: 10,
         margin: 15,
         height: 40,
     },
     submitButtonText: {
+        textAlign: 'center',
         color: 'white'
+    },
+    text: {
+        color: 'red',
+        paddingLeft: 15
     }
 })

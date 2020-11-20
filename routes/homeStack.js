@@ -23,9 +23,9 @@ export const HomeStack = ({navigation}) => (
     headerMode='screen'
     screenOptions={{
       headerStyle: {
-        backgroundColor: '#BAD7E6',
+        backgroundColor: '#304857',
       },
-      headerTintColor: '#304857',
+      headerTintColor: '#fff',
       height: 60
     }}
   >
@@ -37,7 +37,7 @@ export const HomeStack = ({navigation}) => (
         headerTitleAlign: 'center',
         headerLeft: () => (
           <Icon.Button name = "ios-menu" size={25}
-          backgroundColor="#BAD7E6" onPress={() => navigation.openDrawer()}
+          backgroundColor="#304857" onPress={() => navigation.openDrawer()}
           ></Icon.Button>
         )
        }}

@@ -5,8 +5,9 @@ import { globalStyles } from '../styles/global';
 export default function ReviewDetails({navigation}) {
     return (
         <View style={globalStyles.container}>
-            <Text style={globalStyles.titleText}> Review Details Screen </Text>
-            <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
+            <Text style={globalStyles.pageText}>
+                 Following Page
+            </Text>
         </View>
     )
 }

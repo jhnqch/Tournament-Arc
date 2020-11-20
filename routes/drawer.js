@@ -7,11 +7,13 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
+import TabNavigator from './bottomTab';
 
 /* --- Import all the stack routes file location --- */
 import HomeStack from './homeStack';
 import AboutStack from './aboutStack';
 import RegistrationStack from './registrationStack';
+import { DrawerContent } from './drawerContent';
 
 const { Navigator, Screen } = createDrawerNavigator(); // Creates Stack navigation 
 
@@ -20,10 +22,12 @@ const { Navigator, Screen } = createDrawerNavigator(); // Creates Stack navigati
   in the drawer navigation window
 ---*/
 export const RootDrawerNavigator = () => (
-  <Navigator initialRouteName='Home'>
+  <Navigator 
+  drawerContent = {props => <DrawerContent {... props} />}
+  initialRouteName='Home'>
     <Screen
       name='Home'
-      component={HomeStack}
+      component={TabNavigator}
     />
      <Screen
       name='Log In'

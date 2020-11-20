@@ -21,21 +21,21 @@ export const RegistrationStack = ({navigation}) => (
     headerMode='screen'
     screenOptions={{
       headerStyle: {
-        backgroundColor: '#BAD7E6',
+        backgroundColor: '#304857',
       },
-      headerTintColor: '#304857',
+      headerTintColor: '#fff',
       height: 60
     }}
   >
     <Screen
-      name='Input'
+      name='Inputs'
       component={Inputs}
       options={{ 
         title: 'Log In', 
         headerTitleAlign: 'center',
         headerLeft: () => (
           <Icon.Button name = "ios-menu" size={25}
-          backgroundColor="#BAD7E6" onPress={() => navigation.openDrawer()}
+          backgroundColor="#304857" onPress={() => navigation.openDrawer()}
           ></Icon.Button>
          )
       }}
@@ -48,7 +48,7 @@ export const RegistrationStack = ({navigation}) => (
         headerTitleAlign: 'center',
         headerLeft: () => (
           <Icon.Button name = "ios-menu" size={25}
-          backgroundColor="#BAD7E6" onPress={() => navigation.openDrawer()}
+          backgroundColor="#304857" onPress={() => navigation.openDrawer()}
           ></Icon.Button>
          )
        }}
