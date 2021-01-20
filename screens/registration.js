@@ -163,7 +163,7 @@ class Registration extends Component {
                     <Text style={styles.submitButtonText}> CREATE ACCOUNT </Text>
                 </TouchableOpacity>
 
-                <GoToButton screenName = "Input" />
+                <GoToButton screenName = "Inputs" />
 
             </View>
         )

@@ -8,6 +8,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import About from '../screens/about';
+import Registration from '../screens/registration';
+import Inputs from '../screens/input';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
@@ -37,6 +39,35 @@ export const AboutStack = ({navigation}) => (
          )
         }}
     />
+
+    <Screen
+      name='Inputs'
+      component={Inputs}
+      options={{ 
+        title: 'Log In', 
+        headerTitleAlign: 'center',
+        headerLeft: () => (
+          <Icon.Button name = "ios-menu" size={25}
+          backgroundColor="#304857" onPress={() => navigation.openDrawer()}
+          ></Icon.Button>
+         )
+      }}
+    />  
+
+    <Screen
+      name='Register'
+      component={Registration}
+      options={{ 
+        title: 'Register',
+        headerTitleAlign: 'center',
+        headerLeft: () => (
+          <Icon.Button name = "ios-menu" size={25}
+          backgroundColor="#304857" onPress={() => navigation.openDrawer()}
+          ></Icon.Button>
+         )
+       }}
+    />
+
   </Navigator>
 );
 
