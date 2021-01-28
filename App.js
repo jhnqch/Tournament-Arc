@@ -26,6 +26,10 @@ export class Account {
     }
 }
 
+/*--- 
+This comment is a test comment to put while in testFile branch
+---*/
+
 export default function App(){
   const [fontsLoaded, setFontsLoaded] = useState(false)
   new Account("example@email.com", "user1", "123")
