@@ -4,10 +4,21 @@
   ],
   "projectName": "TournamentArc",
   "version": "3.0",
+<<<<<<< Updated upstream
   "frontend": "android",
   "android": {
     "config": {
       "ResDir": "app/src/main/res"
+=======
+  "frontend": "javascript",
+  "javascript": {
+    "framework": "react-native",
+    "config": {
+      "SourceDir": "src",
+      "DistributionDir": "build",
+      "BuildCommand": "npm run build",
+      "StartCommand": "npm start"
+>>>>>>> Stashed changes
     }
   }
 }
