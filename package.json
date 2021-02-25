@@ -11,13 +11,22 @@
     "@aws-amplify/ui-react": "^0.2.38",
     "@expo-google-fonts/inter": "^0.1.0",
     "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-community/netinfo": "^6.0.0",
     "@react-navigation/drawer": "^5.11.3",
     "@react-navigation/material-bottom-tabs": "^5.3.9",
     "@react-navigation/native": "^5.8.9",
     "@react-navigation/stack": "^5.12.6",
+<<<<<<< Updated upstream
     "aws-amplify": "^3.3.18",
     "expo": "^39.0.5",
     "expo-font": "^9.0.0",
+=======
+    "aws-amplify": "^3.3.20",
+    "aws-amplify-react-native": "^4.3.1",
+    "babel-runtime": "^6.26.0",
+    "expo": "~39.0.2",
+    "expo-font": "~8.3.0",
+>>>>>>> Stashed changes
     "expo-status-bar": "~1.0.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",

@@ -3,6 +3,7 @@
   This is the main file that the program will run 
 
 ---*/
+<<<<<<< Updated upstream
 import React, { useState } from 'react';
 import * as Font from 'expo-font';
 import Home from './screens/home';
@@ -11,23 +12,32 @@ import { AppNavigator } from './routes/drawer';
 import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
 Amplify.configure(awsconfig);
+=======
 
-const getFonts = () => Font.loadAsync({
-  'nunito-regular': require('./assets/fonts/Nunito-Regular.ttf'),
-  'nunito-bold': require('./assets/fonts/Nunito-Bold.ttf')
-});
+import React, { useState } from "react";
+import * as Font from "expo-font";
+import Home from "./screens/home";
+import { AppLoading } from "expo";
+import { AppNavigator } from "./routes/drawer";
+import { Text, View, StyleSheet } from "react-native";
+import Amplify from "aws-amplify";
+import config from "./aws-exports";
+import { Authenticator } from "aws-amplify-react-native";
+>>>>>>> Stashed changes
 
-export var accounts = []
+Amplify.configure(config);
 
-export class Account {
-    constructor(email, username, password) {
-        this.email = email
-        this.username = username
-        this.password = password
-        accounts.push(this)
-    }
+export default function App() {
+  return (
+    <View style={styles.containers}>
+      <Authenticator>
+        <Text>Home</Text>
+      </Authenticator>
+    </View>
+  );
 }
 
+<<<<<<< Updated upstream
 /*--- 
 This comment is a test comment to put while in testFile branch
 ---*/
@@ -49,3 +59,12 @@ export default function App(){
       )
   }
 }
+=======
+const styles = StyleSheet.create({
+  containers: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
+>>>>>>> Stashed changes

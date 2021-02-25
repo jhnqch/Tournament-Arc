@@ -1,6 +1,7 @@
 {
   "dev": {
     "awscloudformation": {
+<<<<<<< Updated upstream
       "AuthRoleName": "amplify-tournamentarc-dev-231555-authRole",
       "UnauthRoleArn": "arn:aws:iam::504496283587:role/amplify-tournamentarc-dev-231555-unauthRole",
       "AuthRoleArn": "arn:aws:iam::504496283587:role/amplify-tournamentarc-dev-231555-authRole",
@@ -15,6 +16,17 @@
       "auth": {
         "tournamentarc892a423d": {}
       }
+=======
+      "AuthRoleName": "amplify-tournamentarc-dev-110555-authRole",
+      "UnauthRoleArn": "arn:aws:iam::235838709491:role/amplify-tournamentarc-dev-110555-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::235838709491:role/amplify-tournamentarc-dev-110555-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-tournamentarc-dev-110555-deployment",
+      "UnauthRoleName": "amplify-tournamentarc-dev-110555-unauthRole",
+      "StackName": "amplify-tournamentarc-dev-110555",
+      "StackId": "arn:aws:cloudformation:us-west-2:235838709491:stack/amplify-tournamentarc-dev-110555/7e8ebfa0-779c-11eb-b4d2-0a48e56f94d5",
+      "AmplifyAppId": "d2mb7nle9pyd"
+>>>>>>> Stashed changes
     }
   }
 }
